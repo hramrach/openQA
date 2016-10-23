@@ -106,7 +106,7 @@ sub compute_build_results {
         }
         $jr{reviewed_all_passed} = $jr{passed} == $count;
         $jr{total}               = $count;
-        $jr{reviewed}            = $jr{failed} > 0 && $jr{labeled} == $jr{failed};
+        $jr{reviewed}            = $jr{labeled} == $jr{failed};
         $builds{$b}              = \%jr;
         $max_jobs = $count if ($count > $max_jobs);
     }

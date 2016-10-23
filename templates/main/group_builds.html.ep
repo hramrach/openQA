@@ -14,16 +14,13 @@
                         <i class="tag fa fa-tag" title="<%= $tag->{type}; %>"><%= $tag->{description} %></i>
                     </span>
                 % }
-                % my $reviewed = $build_res->{reviewed};
-                % if ($reviewed) {
-                    <span id="review-<%= $group_build_id %>">
-                        <i class="review fa fa-certificate" title="Reviewed (<%= $build_res->{labeled}; %> comments)"></i>
-                    </span>
-                % }
-                % my $reviewed_all_passed = $build_res->{reviewed_all_passed};
-                % if ($reviewed_all_passed) {
+                % if ($build_res->{reviewed_all_passed}) {
                     <span id="review-all-passed-<%= $group_build_id %>">
                         <i class="review-all-passed fa fa-certificate" title="Reviewed (all passed)"></i>
+                    </span>
+                % } elsif ($build_res->{reviewed}) {
+                    <span id="review-<%= $group_build_id %>">
+                        <i class="review fa fa-certificate" title="Reviewed (<%= $build_res->{labeled}; %> comments)"></i>
                     </span>
                 % }
             </h4>
